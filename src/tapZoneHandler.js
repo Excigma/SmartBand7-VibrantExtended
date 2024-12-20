@@ -47,7 +47,12 @@ function initTapZones(widgetURLs, barURLs) {
 			} else if(y > 330) {
 				return _call(barURLs[2]); // bottom
 			} else {
-				_changeBrightness(-5); // center
+				// center
+				if (x < 64) {
+					_changeBrightness(-5);
+				} else {
+					_call("WorldClockScreen");
+				}
 			}
 		} else {
 			if(y < 160) {
@@ -55,7 +60,12 @@ function initTapZones(widgetURLs, barURLs) {
 			} else if(y > 330) {
 				return _call(barURLs[3]);
 			} else {
-				_changeBrightness(5); // center
+				// center
+				if (x > 128) {
+					_changeBrightness(5);
+				} else {
+					_call("WorldClockScreen");
+				}
 			}
 		}
 	});
