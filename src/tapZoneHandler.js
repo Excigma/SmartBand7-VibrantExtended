@@ -42,27 +42,33 @@ function initTapZones(widgetURLs, barURLs) {
 
 		// Bars
 		if(x < 96) {
+			// Left
 			if(y < 160) {
-				return _call(barURLs[0]); // top
-			} else if(y > 330) {
-				return _call(barURLs[2]); // bottom
+				return _call(barURLs[0]); // Top
+			} else if (y > 375) {
+				return _call(barURLs[2]); // Bottom
+			} else if (y > 290) {
+				return _call("ScheduleListScreen"); // Day of week / DND
 			} else {
-				// center
+				// Center
 				if (x < 64) {
-					_changeBrightness(-5);
+					_changeBrightness(-10);
 				} else {
 					_call("WorldClockScreen");
 				}
 			}
 		} else {
+			// Right
 			if(y < 160) {
-				return _call(barURLs[1]);
-			} else if(y > 330) {
-				return _call(barURLs[3]);
+				return _call(barURLs[1]); // Top 
+			} else if (y > 375) {
+				return _call(barURLs[3]); // Bottom
+			} else if (y > 290) {
+				return _call("Settings_dndModelScreen"); // Day of week / DND
 			} else {
 				// center
 				if (x > 128) {
-					_changeBrightness(5);
+					_changeBrightness(10);
 				} else {
 					_call("WorldClockScreen");
 				}
